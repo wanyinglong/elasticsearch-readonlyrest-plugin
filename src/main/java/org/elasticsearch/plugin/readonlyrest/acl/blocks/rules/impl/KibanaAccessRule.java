@@ -1,7 +1,6 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.impl;
 
-import com.google.common.collect.Lists;
-import org.elasticsearch.common.logging.ESLogger;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.plugin.readonlyrest.ConfigurationHelper;
@@ -11,6 +10,7 @@ import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.Rule;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.RuleExitResult;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.RuleNotConfiguredException;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -19,13 +19,13 @@ import java.util.List;
  */
 public class KibanaAccessRule extends Rule {
 
-  private final static ESLogger logger = Loggers.getLogger(KibanaAccessRule.class);
+  private final static Logger logger = Loggers.getLogger(KibanaAccessRule.class);
 
-  private static List<String> kibanaServerClusterActions = Lists.newArrayList(
+  private static List<String> kibanaServerClusterActions = Arrays.asList(
       "cluster:monitor/nodes/info",
       "cluster:monitor/health");
 
-  private static List<String> kibanaActionsRO = Lists.newArrayList(
+  private static List<String> kibanaActionsRO = Arrays.asList(
       "indices:admin/exists",
       "indices:admin/mappings/fields/get",
       "indices:admin/validate/query",
@@ -40,7 +40,7 @@ public class KibanaAccessRule extends Rule {
       "indices:admin/mappings/fields/get[index]"
   );
 
-  private static List<String> kibanaActionsRW = Lists.newArrayList(
+  private static List<String> kibanaActionsRW = Arrays.asList(
       "indices:admin/create",
       "indices:admin/exists",
       "indices:admin/mapping/put",

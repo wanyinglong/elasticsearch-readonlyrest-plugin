@@ -2,10 +2,12 @@ package org.elasticsearch.plugin.readonlyrest;
 
 import org.elasticsearch.action.ActionModule;
 import org.elasticsearch.http.HttpServerModule;
+import org.elasticsearch.index.IndexModule;
+import org.elasticsearch.plugins.ActionPlugin;
 import org.elasticsearch.plugins.Plugin;
 import org.elasticsearch.rest.RestModule;
 
-public class ReadonlyRestPlugin extends Plugin {
+public class ReadonlyRestPlugin extends Plugin  implements ActionPlugin{
 
   @Override
   public String name() {

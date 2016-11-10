@@ -7,7 +7,7 @@ import org.elasticsearch.action.ActionRequest;
 import org.elasticsearch.action.CompositeIndicesRequest;
 import org.elasticsearch.action.IndicesRequest;
 import org.elasticsearch.common.collect.ImmutableOpenMap;
-import org.elasticsearch.common.logging.ESLogger;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.index.IndexService;
 import org.elasticsearch.index.aliases.IndexAliasesService;
@@ -35,7 +35,7 @@ import static org.elasticsearch.plugin.readonlyrest.ConfigurationHelper.ANSI_RES
  * Created by sscarduzio on 20/02/2016.
  */
 public class RequestContext {
-  private final ESLogger logger = Loggers.getLogger(getClass());
+  private final Logger logger = Loggers.getLogger(getClass());
   /*
     * A regular expression to match the various representations of "localhost"
     */
@@ -236,7 +236,7 @@ public class RequestContext {
         ", M:" + request.method() +
         ", P:" + request.path() +
         ", C:" + (logger.isDebugEnabled() ? getContent() : "<OMITTED, LENGTH=" + getContent().length()+ ">") +
-        ", Headers:" + request.getHeaders() +
+        ", Headers:" + request.headers() +
         " }";
   }
 

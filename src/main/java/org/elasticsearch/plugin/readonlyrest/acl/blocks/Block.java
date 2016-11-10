@@ -1,7 +1,7 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks;
 
 import com.google.common.collect.Sets;
-import org.elasticsearch.common.logging.ESLogger;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.plugin.readonlyrest.acl.RequestContext;
 import org.elasticsearch.plugin.readonlyrest.acl.RuleConfigurationError;
@@ -19,14 +19,14 @@ import static org.elasticsearch.plugin.readonlyrest.ConfigurationHelper.*;
  * Created by sscarduzio on 13/02/2016.
  */
 public class Block {
-  private ESLogger logger;
+  private Logger logger;
 
   private final String name;
   private final Policy policy;
   private boolean authHeaderAccepted = false;
   private Set<Rule> conditionsToCheck = Sets.newHashSet();
 
-  public Block(Settings s, List<Settings> userList, ESLogger logger) {
+  public Block(Settings s, List<Settings> userList, Logger logger) {
     this.name = s.get("name");
     String sPolicy = s.get("type");
     this.logger = logger;

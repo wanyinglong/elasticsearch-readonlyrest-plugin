@@ -2,7 +2,7 @@ package org.elasticsearch.plugin.readonlyrest;
 
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.Singleton;
-import org.elasticsearch.common.logging.ESLogger;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.common.settings.Settings;
 
@@ -32,7 +32,7 @@ public class ConfigurationHelper {
   public final String sslKeyStoreFile;
   public final String sslKeyPassword;
   public final String sslKeyStorePassword;
-  private final ESLogger logger;
+  private final Logger logger;
 
   @Inject
   public ConfigurationHelper(Settings settings) {

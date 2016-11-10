@@ -1,6 +1,6 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.impl;
 
-import org.elasticsearch.common.logging.ESLogger;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.plugin.readonlyrest.acl.RequestContext;
@@ -14,7 +14,7 @@ import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.RuleNotConfiguredE
  */
 public class ActionsRule extends Rule {
 
-  private final static ESLogger logger = Loggers.getLogger(ActionsRule.class);
+  private final static Logger logger = Loggers.getLogger(ActionsRule.class);
 
   protected MatcherWithWildcards m;
 
